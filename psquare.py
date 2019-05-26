@@ -73,7 +73,7 @@ while s < totalwidth:
 
 
 
-#adjustments
+#Inidividual box spacing adjustments
 if (len(val1)< len(val3)):
     diff1 = len(val3)-len(val1)
     e = 0
@@ -101,8 +101,6 @@ if(len(val4)< len(val2)):
 
 
 
-   
-
 #table print
 print("\n" + margin + " " + spaces + x + spaces + spaces + " " + y)
 print(margin + topline)
@@ -113,11 +111,15 @@ print(margin + topline)
 
 
 #percentage reporting
+
+#split function definition
 def split(x):
     return list(x)
+
 varlst1 = [val1, val2, val3, val4]
 varlst2 = [split(val1), split(val2), split(val3), split(val4)]
 
+#compare function definition
 def compare(lst1, lst2):
     for i in lst1:
         if(i not in lst2 ):
@@ -130,9 +132,12 @@ def compare(lst1, lst2):
     return True
 
 
-
+#ratio dictionary declaration
 perc = {'box1': 0, 'box2': 0, 'box3': 0, 'box4': 0}
 
+#main comparison function. This function compares the allele combinations to each other, while incrementally increasing starting values 
+#so values aren't compared to themselves or to each other multiple times. It then adds to the ratio dictionary values if two values are 
+#found to be equivalent
 b = 0
 startval = 1
 for i in varlst1:
@@ -151,11 +156,13 @@ for i in varlst1:
     b+=1
     startval +=1
 
-
+#ratio list declaration- this takes the definition values of the ratio dictionary and writes them to a list so they can be evaluated.
 ratios = []
 for i in perc:
     ratios.append(perc[i])
-    
+
+#Percentages print and evaluation: this section then checks to see what ratio is presented by the data, and prints the respective
+#percentages
 print("Percentages: ")
 if(ratios == [1, 0, 0, 1]):
     print(str(varlst1[0]) + ": "+ "50%")
