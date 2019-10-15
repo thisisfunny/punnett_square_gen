@@ -254,6 +254,7 @@ def complex_table():
                 sidevar = True
             n += 1
         comp_var_list[i] = string1 + comp_var_list[i] + string2
+
         
         
     #line length adjustments
@@ -269,12 +270,18 @@ def complex_table():
         n2+=1
     print(top_len)
 
+
+        print(comp_var_list[i])
+        
+ 
+
         
 
 
 
     
     print("\n      " + x +x1 + "       "+ x+ y1 + "       "+ y + x1+ "       "+ y+y1)
+
     print(line)
     print(margin1 + z+z1 + "|" + comp_var_list[0] +"|"+comp_var_list[1] + "|"+  comp_var_list[2]  + "|" + comp_var_list[3] + "|")
     print(line)
@@ -284,6 +291,7 @@ def complex_table():
     print(line)
     print(margin4 + q+q1 + "|"+comp_var_list[12]+ "|"+comp_var_list[13]+ "|"+ comp_var_list[14]+ "|"+ comp_var_list[15]+ "|")
     print(line)
+
 
  #Title
 
