@@ -193,6 +193,8 @@ def complex_table():
     #Input functions
     x, y, x1, y1 = input("Parent 1 Genotype: ").split()
     z,q, z1, q1 = input("Parent 2 Genotype: ").split()
+
+    #Side margin adjustments
     val1 = z+z1
     val2 = z+q1
     val3 = q+z1
@@ -228,18 +230,60 @@ def complex_table():
             margin4+= " "
             i+=1
         
-
+    #Box margin adjustment
     A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P = x+z+x1+z1, x+z+y1+z1, y+z+x1+z1, y+z+y1+z1, x+z+x1+q1, x+z+y1+q1, y+z+x1+q1, y+z+y1+q1, x+q+x1+z1, x+q+y1+z1, y+q+x1+z1, y+q+y1+z1, x+q+x1+q1, x+q+y1+q1, y+q+x1+q1, y+q+y1+q1   
+    comp_var_list_len = [len(A), len(B), len(C), len(D), len(E), len(F), len(G), len(H), len(I), len(J), len(K), len(L), len(M), len(N), len(O), len(P)]
+    top_len = max(comp_var_list_len)
+    comp_var_list = [A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P]
+   
+    for i in range(len(comp_var_list)):
+        global sidevar 
+        global string1
+        global string2
+        sidevar = True
+        diff = top_len - comp_var_list_len[i]
+        n = 0
+        string1= ' '
+        string2 = ' '
+        while n < diff:
+            if (sidevar):
+                string1 = string1 + ' '
+                sidevar = False
+            else:
+                string2 = string2 + ' '
+                sidevar = True
+            n += 1
+        comp_var_list[i] = string1 + comp_var_list[i] + string2
+        
+        
+    #line length adjustments
+    total_length = ((top_len + 2) * 4) + 4
+    n1 = 0
+    line = ''
+    while n1 < marginl:
+        line += ' '
+        n1+=1
+    n2 = 0
+    while n2< total_length:
+        line = line + '-'
+        n2+=1
+    print(top_len)
+
+        
+
+
+
+    
     print("\n      " + x +x1 + "       "+ x+ y1 + "       "+ y + x1+ "       "+ y+y1)
-    print("  -------------------------------------")
-    print(margin1 + z+z1 + "|"+"  "+ A + "  "+"|"+"  "+B + "  "+ "|"+ "  " + C + "  " + "|" + "  "+ D + "  " + "|")
-    print("  -------------------------------------")
-    print(margin2 + z+ q1 + "|"+ "  "+ E + "  "+ "|"+ "  "+F+ "  "+ "|"+ "  "+ G+ "  "+ "|"+ "  "+ H+ "  "+ "|")
-    print("  -------------------------------------")
-    print(margin3+ q+z1 + "|"+ "  "+I + "  "+ "|"+ "  "+J+ "  "+ "|"+ "  "+K+ "  "+ "|"+ "  "+ L+ "  "+ "|")
-    print("  -------------------------------------")
-    print(margin4 + q+q1 + "|"+ "  "+ M + "  "+ "|"+ "  "+N+ "  "+ "|"+ "  "+ O+ "  "+ "|"+ "  "+ P+ "  "+ "|")
-    print("  -------------------------------------")
+    print(line)
+    print(margin1 + z+z1 + "|" + comp_var_list[0] +"|"+comp_var_list[1] + "|"+  comp_var_list[2]  + "|" + comp_var_list[3] + "|")
+    print(line)
+    print(margin2 + z+ q1 + "|"+ comp_var_list[4]+ "|"+ comp_var_list[5]+ "|"+ comp_var_list[6]+ "|"+ comp_var_list[7]+ "|")
+    print(line)
+    print(margin3+ q+z1 + "|"+ comp_var_list[8]+ "|"+ comp_var_list[9]+ "|"+ comp_var_list[10]+ "|"+ comp_var_list[11]+ "|")
+    print(line)
+    print(margin4 + q+q1 + "|"+comp_var_list[12]+ "|"+comp_var_list[13]+ "|"+ comp_var_list[14]+ "|"+ comp_var_list[15]+ "|")
+    print(line)
 
  #Title
 
