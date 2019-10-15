@@ -193,28 +193,69 @@ def complex_table():
     #Input functions
     x, y, x1, y1 = input("Parent 1 Genotype: ").split()
     z,q, z1, q1 = input("Parent 2 Genotype: ").split()
-     
-    #Basic table formula
+    val1 = z+z1
+    val2 = z+q1
+    val3 = q+z1
+    val4 = q+q1
+    mlist = [len(val1), len(val2), len(val3), len(val4)]
+    marginl = max(mlist)
+    margin1 = ""
+    margin2 = ""
+    margin3 = ""
+    margin4 = ""
+    if(len(val1) < marginl):
+        i = 0
+        diff1 = marginl - len(val1)
+        while i < diff1:
+            margin1 += " "
+            i+= 1
+    if(len(val2)< marginl):
+        i = 0
+        diff2 = marginl - len(val2)
+        while i < diff2:
+            margin2 += " "
+            i+= 1
+    if(len(val3)< marginl):
+        i = 0
+        diff3 = marginl - len(val3)
+        while i < diff3:
+            margin3 += " "
+            i+= 1
+    if (len(val4)< marginl):
+        i = 0
+        diff4 = marginl -len(val4)
+        while i< diff4:
+            margin4+= " "
+            i+=1
+        
+
+    A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P = x+z+x1+z1, x+z+y1+z1, y+z+x1+z1, y+z+y1+z1, x+z+x1+q1, x+z+y1+q1, y+z+x1+q1, y+z+y1+q1, x+q+x1+z1, x+q+y1+z1, y+q+x1+z1, y+q+y1+z1, x+q+x1+q1, x+q+y1+q1, y+q+x1+q1, y+q+y1+q1   
     print("\n      " + x +x1 + "       "+ x+ y1 + "       "+ y + x1+ "       "+ y+y1)
     print("  -------------------------------------")
-    print(z+z1 + "|"+"  "+ x+z+x1+z1+ "  "+"|"+"  "+x+z+y1+z1 + "  "+ "|"+ "  " + y+z+x1+z1 + "  " + "|" + "  "+ y+z+y1+z1 + "  " + "|")
+    print(margin1 + z+z1 + "|"+"  "+ A + "  "+"|"+"  "+B + "  "+ "|"+ "  " + C + "  " + "|" + "  "+ D + "  " + "|")
     print("  -------------------------------------")
-    print(z+ q1 + "|"+ "  "+ x+z+x1+q1 + "  "+ "|"+ "  "+x+z+y1+q1+ "  "+ "|"+ "  "+ y+z+x1+q1+ "  "+ "|"+ "  "+ y+z+y1+q1+ "  "+ "|")
+    print(margin2 + z+ q1 + "|"+ "  "+ E + "  "+ "|"+ "  "+F+ "  "+ "|"+ "  "+ G+ "  "+ "|"+ "  "+ H+ "  "+ "|")
     print("  -------------------------------------")
-    print(q+z1 + "|"+ "  "+ x+q+x1+z1 + "  "+ "|"+ "  "+x+q+y1+z1+ "  "+ "|"+ "  "+y+q+x1+z1+ "  "+ "|"+ "  "+ y+q+y1+z1+ "  "+ "|")
+    print(margin3+ q+z1 + "|"+ "  "+I + "  "+ "|"+ "  "+J+ "  "+ "|"+ "  "+K+ "  "+ "|"+ "  "+ L+ "  "+ "|")
     print("  -------------------------------------")
-    print(q+q1 + "|"+ "  "+ x+q+x1+q1 + "  "+ "|"+ "  "+x+q+y1+q1+ "  "+ "|"+ "  "+ y+q+x1+q1+ "  "+ "|"+ "  "+ y+q+y1+q1+ "  "+ "|")
+    print(margin4 + q+q1 + "|"+ "  "+ M + "  "+ "|"+ "  "+N+ "  "+ "|"+ "  "+ O+ "  "+ "|"+ "  "+ P+ "  "+ "|")
     print("  -------------------------------------")
 
  #Title
-print("\nPunnett Square Generator:\nTo select a simple punnett square, please type '1' below.\nTo select a two-gene punnett square, please type'2' below.")
-select = input("Selection: ")
-if select == '1':
-    simple_table()
-elif select == '2':
-    complex_table()
 
+def startMenu():
 
+    print("\nPunnett Square Generator:\nTo select a simple punnett square, please type '1' below.\nTo select a two-gene punnett square, please type'2' below.")
+    select = input("Selection: ")
+    if select == '1':
+        simple_table()
+    elif select == '2':
+        complex_table()
+    else :
+        print("\nSorry, that input is not recognized. Please try again.")
+        startMenu()
+
+startMenu()
 
             
 
