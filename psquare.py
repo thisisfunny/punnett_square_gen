@@ -229,12 +229,21 @@ def complex_table():
         while i< diff4:
             margin4+= " "
             i+=1
-        
+
+    #Topline margin adjustment
+    A1, B1, C1, D1 = x+x1,x+y1, y+x1, y+y1     
+    topmargin = ''
+    n3 = 0
+    while n3 < marginl:
+        topmargin += " "
+        n3+= 1
+    
+
     #Box margin adjustment
     A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P = x+z+x1+z1, x+z+y1+z1, y+z+x1+z1, y+z+y1+z1, x+z+x1+q1, x+z+y1+q1, y+z+x1+q1, y+z+y1+q1, x+q+x1+z1, x+q+y1+z1, y+q+x1+z1, y+q+y1+z1, x+q+x1+q1, x+q+y1+q1, y+q+x1+q1, y+q+y1+q1   
-    comp_var_list_len = [len(A), len(B), len(C), len(D), len(E), len(F), len(G), len(H), len(I), len(J), len(K), len(L), len(M), len(N), len(O), len(P)]
+    comp_var_list_len = [len(A), len(B), len(C), len(D), len(E), len(F), len(G), len(H), len(I), len(J), len(K), len(L), len(M), len(N), len(O), len(P), len(A1), len(B1), len(C1), len(D1)]
     top_len = max(comp_var_list_len)
-    comp_var_list = [A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P]
+    comp_var_list = [A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P, A1,B1,C1,D1]
    
     for i in range(len(comp_var_list)):
         global sidevar 
@@ -267,14 +276,14 @@ def complex_table():
     while n2< total_length:
         line = line + '-'
         n2+=1
-    print(top_len)
+   
 
         
 
 
 
     
-    print("\n      " + x +x1 + "       "+ x+ y1 + "       "+ y + x1+ "       "+ y+y1)
+    print("\n" +topmargin + " "+ comp_var_list[16] + " "+ comp_var_list[17] + " "+ comp_var_list[18] + " "+ comp_var_list[19])
     print(line)
     print(margin1 + z+z1 + "|" + comp_var_list[0] +"|"+comp_var_list[1] + "|"+  comp_var_list[2]  + "|" + comp_var_list[3] + "|")
     print(line)
