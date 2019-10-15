@@ -72,7 +72,7 @@ def simple_table():
 
 
 
-    #Inidividual box spacing adjustments
+    #Individual box spacing adjustments
     if (len(val1)< len(val3)):
         diff1 = len(val3)-len(val1)
         e = 0
@@ -278,10 +278,7 @@ def complex_table():
         n2+=1
    
 
-        
-
-
-
+    #Complex Table print
     
     print("\n" +topmargin + " "+ comp_var_list[16] + " "+ comp_var_list[17] + " "+ comp_var_list[18] + " "+ comp_var_list[19])
     print(line)
@@ -294,6 +291,50 @@ def complex_table():
     print(margin4 + q+q1 + "|"+comp_var_list[12]+ "|"+comp_var_list[13]+ "|"+ comp_var_list[14]+ "|"+ comp_var_list[15]+ "|")
     print(line)
 
+    
+    #Compare function
+    def compare(lst1, lst2):
+        for i in lst1:
+            if(i not in lst2 ):
+                return False
+            else:
+                for i in lst2:
+                    if(i not in lst1):
+                        return False
+        
+        return True
+    #split function definition
+    def split(x):
+        return list(x)
+
+    #Compare process
+    comp_varlst = [A, B,C,D,E,F,G,H,I,J,K,L,M,N,O,P]
+    comp_varlst_split = split(comp_varlst)
+    perc2 = {'box1': 0, 'box2': 0, 'box3': 0, 'box4': 0, 'box5':0, 'box6': 0,'box7': 0,'box8': 0,'box9': 0,'box10': 0,'box11': 0,'box12': 0,'box13': 0,'box14': 0,'box15': 0,'box16': 0,}
+    b = 0
+    startval = 1
+    for i in comp_varlst:
+        k = comp_varlst_split[b]
+        for i in range(startval, len(comp_varlst_split)):
+            j = comp_varlst_split[i]
+            if len(j) == len(k):
+                if (compare(j, k)== True):
+                    if(b == 0):
+                        perc2['box1']+= 1
+                        perc2['box'+ str(i+1)] += 1
+                    else:
+                        perc2['box'+ str(i+1)] += 1
+                        perc2['box' + str(b + 1)] += 1
+            
+        b+=1
+        startval +=1
+    ratios = []
+    for i in perc2:
+        ratios.append(perc2[i])
+    print(ratios)
+
+    if(ratios == [15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15]):
+        print("Percentages:\n"+ A+ ": 100%")
  #Title
 
 def startMenu():
