@@ -254,24 +254,36 @@ def complex_table():
                 sidevar = True
             n += 1
         comp_var_list[i] = string1 + comp_var_list[i] + string2
-        print(comp_var_list[i])
         
- 
+        
+    #line length adjustments
+    total_length = ((top_len + 2) * 4) + 4
+    n1 = 0
+    line = ''
+    while n1 < marginl:
+        line += ' '
+        n1+=1
+    n2 = 0
+    while n2< total_length:
+        line = line + '-'
+        n2+=1
+    print(top_len)
+
         
 
 
 
     
     print("\n      " + x +x1 + "       "+ x+ y1 + "       "+ y + x1+ "       "+ y+y1)
-    print("  -------------------------------------")
+    print(line)
     print(margin1 + z+z1 + "|" + comp_var_list[0] +"|"+comp_var_list[1] + "|"+  comp_var_list[2]  + "|" + comp_var_list[3] + "|")
-    print("  -------------------------------------")
+    print(line)
     print(margin2 + z+ q1 + "|"+ comp_var_list[4]+ "|"+ comp_var_list[5]+ "|"+ comp_var_list[6]+ "|"+ comp_var_list[7]+ "|")
-    print("  -------------------------------------")
+    print(line)
     print(margin3+ q+z1 + "|"+ comp_var_list[8]+ "|"+ comp_var_list[9]+ "|"+ comp_var_list[10]+ "|"+ comp_var_list[11]+ "|")
-    print("  -------------------------------------")
+    print(line)
     print(margin4 + q+q1 + "|"+comp_var_list[12]+ "|"+comp_var_list[13]+ "|"+ comp_var_list[14]+ "|"+ comp_var_list[15]+ "|")
-    print("  -------------------------------------")
+    print(line)
 
  #Title
 
